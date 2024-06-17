@@ -17,37 +17,23 @@ int main() {
     4: aud
     5: cny
     6: yen
-    */
-    printf("Give me the currency you want to transfer\n1: rub\n2: usd\n3: cad\n4: aud\n5: cny\n6: yen\n");
+    */ 
+    printf("\e[2J\e[0;0H");
+    printf("1: rub\n2: usd\n3: cad\n4: aud\n5: cny\n6: yen\nGive me the currency you want to transfer: ");
     scanf("%d", &source);
-    printf("%d\n", source);
-    printf("Now the one you want to transfer to\n1: rub\n2: usd\n3: cad\n4: aud\n5: cny\n6: yen\n");
+    printf("\e[2J\e[0;0H");
+    printf("1: rub\n2: usd\n3: cad\n4: aud\n5: cny\n6: yen\nNow the one you want to transfer to: ");
     scanf("%d", &destenation);
+    printf("\e[2J\e[0;0H");
+    printf("Enter the amount you need to transfer: ");
     scanf("%f", &input);
-    printf("%d\n", destenation);
+    printf("\e[2J\e[0;0H");
 
     if (source < 6 && source > 1 || destenation <  6 && destenation > 1) {
-        if (source == 1) {
-            result = input * rub[destenation];
-            printf("%f", result);
-        } else if (source == 2) {
-            result = input * usd[destenation];
-            printf("%f", result);
-        } else if (source == 3) {
-            result = input * cad[destenation];
-            printf("%f", result);
-        } else if (source == 4) {
-            result = input * aud[destenation]; 
-            printf("%f", result);
-        } else if (source == 5) {
-            result = input * cny[destenation]; 
-            printf("%f", result);
-        } else {
-            result = input * yen[destenation]; 
-            printf("%f", result);
-        }
+        result = input * currency[source - 1][destenation - 1];
+        printf("%f\n", result);
     } else {
-        printf("You have a problem");
+        printf("\nYou have a problem\n");
     }
     return 0;
 }
